@@ -38,6 +38,7 @@ jobs:
           port: 22
           script: |
             if [ ! -d "/home/ec2-user/react-app/.git" ]; then
+              rm -rf /home/ec2-user/react-app
               git clone https://github.com/jritu96111/new-react-jenkins-docker.git /home/ec2-user/react-app
             fi
             cd /home/ec2-user/react-app
