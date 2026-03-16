@@ -40,10 +40,14 @@ jobs:
             if [ ! -d "/home/ec2-user/react-app/.git" ]; then
               rm -rf /home/ec2-user/react-app
               git clone https://github.com/jritu96111/new-react-jenkins-docker.git /home/ec2-user/react-app
+            else
+              cd /home/ec2-user/react-app
+              git reset --hard
+              git clean -fd
             fi
             cd /home/ec2-user/react-app
             git pull origin main
             npm install
             npm run build
-            sudo mv build/* /usr/share/nginx/html/
+            sudo rsync -av --delete build/ /usr/share/nginx/html/
             sudo systemctl restart nginx
