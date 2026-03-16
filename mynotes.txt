@@ -1,0 +1,41 @@
+   npm run build
+1. create instance
+sudo yum update -y
+sudo yum install -y nodejs
+sudo yum install -y git
+sudo yum install -y nginx
+sudo systemctl start nginx
+sudo systemctl enable nginx
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+npm install
+npm run build
+(Create a GitHub Actions Workflow:
+
+In your React project, create a folder named .github/workflows/.
+Inside this folder, create a file named deploy.yml.)
+
+2. create pem files 
+   (rituj@RituJ:/mnt/c/Users/rituj/Downloads$ ssh-keygen -y -f /mnt/c/Users/rituj/Downloads/my-key-pair.pem
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDF+vbYQLvG/9advw3S6nV7q+PfjU8h3Xc9e8CDs1SLJVbukOumF/kxxxHC+GzeAfJIf4UvH8PQqWTSynLUKBpeLN9bGJ5wkJMqRl/NF4X63OB+tprEjuRIW+ZKi+kZA0PuAH00wBaNuabukI/uslnW8sTyvRTzg+oSoXfZau0pEOlejC/A//ZvRwIe61iAvdcVUQeUPWZcG2I6vEpg5cXxKHvhcTJtI+iqgei/ZaW+H097is2uM+D9euJoX7X2itMLoUQmOCK8nnyfqACLbdCIGJu7CmaI3BEMgd+2tjikuAgegAI0L7KdMvcAe6MANTRy4K/BZR4PDKYeqKBQJKi7
+rituj@RituJ:/mnt/c/Users/rituj/Downloads$)
+   (Log in to Your EC2 Instance Using EC2 Instance Connect:
+
+Go to the AWS Management Console.
+Navigate to EC2 > Instances.
+Select your instance and click Connect.
+Use EC2 Instance Connect to open a terminal.
+Add the Public Key to the authorized_keys File:
+
+Run the following commands in the EC2 terminal:
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDF+vbYQLvG/9advw3S6nV7q+PfjU8h3Xc9e8CDs1SLJVbukOumF/kxxxHC+GzeAfJIf4UvH8PQqWTSynLUKBpeLN9bGJ5wkJMqRl/NF4X63OB+tprEjuRIW+ZKi+kZA0PuAH00wBaNuabukI/uslnW8sTyvRTzg+oSoXfZau0pEOlejC/A//ZvRwIe61iAvdcVUQeUPWZcG2I6vEpg5cXxKHvhcTJtI+iqgei/ZaW+H097is2uM+D9euJoX7X2itMLoUQmOCK8nnyfqACLbdCIGJu7CmaI3BEMgd+2tjikuAgegAI0L7KdMvcAe6MANTRy4K/BZR4PDKYeqKBQJKi7" >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+)
+(On your local machine, test the .pem file by running:
+ssh -i /mnt/c/Users/rituj/Downloads/my-key-pair.pem ec2-user@<your-ec2-public-ip>
+)
+()
+3. install wsl to make terminal linus  (wsl --install)
+4. 
